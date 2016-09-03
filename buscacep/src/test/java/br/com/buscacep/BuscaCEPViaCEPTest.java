@@ -37,12 +37,6 @@ public class BuscaCEPViaCEPTest {
 		assertTrue(endereco.getEndereco().toLowerCase().contains("sbn quadra 1 bloco a"));		
 	}
 	
-	@Test
-	public void testEnderecoOutraCidade() {		
-		Endereco endereco = cep.getEnderecoByCep("70002900");	
-		assertTrue(endereco.getCidade().toLowerCase().contains("brasília"));	
-	}
-	
 	@Test 
 	public void testEnderecoCidade() {
 		Endereco endereco = cep.getEnderecoByCep("14405445");	
