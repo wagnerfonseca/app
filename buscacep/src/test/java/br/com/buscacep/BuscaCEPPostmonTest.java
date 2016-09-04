@@ -37,6 +37,12 @@ public class BuscaCEPPostmonTest {
 	}
 	
 	@Test 
+	public void testEnderecoNomeCidade() {
+		Endereco endereco = cep.getEnderecoByCep("70002900");	
+		assertTrue(endereco.getCidade().toLowerCase().contains("brasília"));		
+	}
+	
+	@Test 
 	public void testEnderecoCidade() {
 		Endereco endereco = cep.getEnderecoByCep("14405445");	
 		assertTrue(endereco.getCidade().toLowerCase().contains("franca"));		
