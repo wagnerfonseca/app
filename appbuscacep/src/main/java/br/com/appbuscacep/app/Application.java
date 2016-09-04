@@ -1,21 +1,23 @@
+package br.com.appbuscacep.app;
+
 import java.util.Scanner;
 
 import br.com.buscacep.factory.BuscaCep;
 import br.com.buscacep.factory.BuscaCepPostmon;
 
-public class Main {
-
+public class Application {
+	
 	public static void main(String[] args) {
-		new Main().run();
+		new Application().run();
 	}
 	
 	public void run() {
 		BuscaCep busca = new BuscaCepPostmon();
 		String cep = "";
         Scanner scan = new Scanner(System.in);
-
+        System.out.println("Digite \"sair\" para sair do programa");
         do {
-            System.out.print("Digite um cep: ");
+            System.out.printf("Digite um cep: ");
             cep = scan.next();
             // consulta
             if (!cep.equals("sair")) {
