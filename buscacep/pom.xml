@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>br.fonseca</groupId>
+	<groupId>br.org.fonseca</groupId>
 	<artifactId>buscacep</artifactId>
 
 	<version>1.0.1</version>
@@ -12,6 +12,30 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
+
+	<developers>
+		<developer>
+			<name>Wagner Fonseca</name>
+			<id>wfonseca</id>
+			<email>wagner.fonseca@gmail.com</email>
+			<roles>
+				<role>Programmer</role>
+			</roles>
+			<timezone>-3</timezone>
+		</developer>
+	</developers>
+
+	<!-- Maven repositories -->
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<id>central</id>
+			<name>Maven Repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>		
+	</repositories>
 
 	<dependencies>
 
@@ -38,7 +62,7 @@
 
 	</dependencies>
 
-	<build>	
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -49,7 +73,7 @@
 					<source>${java.version}</source>
 				</configuration>
 			</plugin>
-			
+
 			<!-- Maven Assembly Plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -60,26 +84,22 @@
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
-					<!-- MainClass in mainfest make a executable jar 
-					<archive>
-					  <manifest>
-						<mainClass>br.com.buscacep.Main</mainClass>
-					  </manifest>
-					</archive>-->
+					<!-- MainClass in mainfest make a executable jar <archive> <manifest> 
+						<mainClass>br.com.buscacep.Main</mainClass> </manifest> </archive> -->
 
 				</configuration>
 				<executions>
-				  <execution>
-					<id>make-assembly</id>
-                    <!-- bind to the packaging phase -->
-					<phase>package</phase>
-					<goals>
-						<goal>single</goal>
-					</goals>
-				  </execution>
+					<execution>
+						<id>make-assembly</id>
+						<!-- bind to the packaging phase -->
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
 				</executions>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 	<description>API para Busca de CEp</description>
