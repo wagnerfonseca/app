@@ -2,8 +2,9 @@ package br.com.appbuscacep.app;
 
 import java.util.Scanner;
 
-import br.com.buscacep.factory.BuscaCep;
-import br.com.buscacep.factory.BuscaCepPostmon;
+import com.github.wagnerfonseca.buscacep.factory.BuscaCep;
+import com.github.wagnerfonseca.buscacep.factory.BuscaCepPostmon;
+
 
 public class Application {
 	

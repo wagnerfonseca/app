@@ -2,8 +2,11 @@
 
 API para buscar endereços através do CEP.
 
-## Copilando
+'
+<dependency>
+  <groupId>com.github.wagnerfonseca</groupId>
+  <artifactId>buscacep</artifactId>
+  <version>1.0.1</version>
+</dependency>
+'
 
-Deve executar o install, porque esse jar vai ser utilizado em outras aplicações
-
-$ mvn clean install
