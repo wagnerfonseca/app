@@ -1,33 +1,47 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>com.github.wagnerfonseca</groupId>
 	<artifactId>buscacep</artifactId>
-
 	<version>1.0.1</version>
+
 	<name>buscacep</name>
+	<description>API para Busca de CEP</description>
+	<url>https://github.com/wagnerfonseca</url>
+
+	<licenses>
+		<license>
+			<name>Apache 2</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+
+		</license>
+	</licenses>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
-	
-	<url>http://www.sonatype.com</url>
 
-    <licenses>
-        <license>
-            <name>Apache 2</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-            <distribution>repo</distribution>
-            <comments>A business-friendly OSS license</comments>
-        </license>
-    </licenses>
+	<!-- Deploy Central Repository -->
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
 
-    <organization>
-        <name>Sonatype</name>
-        <url>http://www.sonatype.com</url>
-    </organization>
+	<scm>
+		<connection>scm:git:git://github.com/wagnerfonseca/app.git</connection>
+		<developerConnection>scm:git:ssh://github.com:wagnerfonseca/app.git</developerConnection>
+		<url>http://github.com/simpligility/app/tree/master</url>
+	</scm>
 
 	<developers>
 		<developer>
@@ -78,42 +92,49 @@
 				</configuration>
 			</plugin>
 
-			<!-- Maven Assembly Plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.6</version>
-				<configuration>
-					<!-- get all project dependencies -->
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
-					<!-- MainClass in mainfest make a executable jar <archive> <manifest> 
-						<mainClass>br.com.buscacep.Main</mainClass> </manifest> </archive> -->
-
-				</configuration>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
 				<executions>
 					<execution>
-						<id>make-assembly</id>
-						<!-- bind to the packaging phase -->
-						<phase>package</phase>
+						<id>attach-sources</id>
 						<goals>
-							<goal>single</goal>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9.1</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-gpg-plugin</artifactId>
+				<version>1.6</version>
+				<executions>
+					<execution>
+						<id>sign-artifacts</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>sign</goal>
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
 
 		</plugins>
-
-
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-ssh</artifactId>
-				<version>2.4</version>
-			</extension>
-		</extensions>
 	</build>
-	<description>API para Busca de CEP</description>
+
 </project>
