@@ -38,9 +38,9 @@
 	</distributionManagement>
 
 	<scm>
-		<connection>scm:git:git://github.com/wagnerfonseca/app.git</connection>
-		<developerConnection>scm:git:ssh://github.com:wagnerfonseca/app.git</developerConnection>
-		<url>http://github.com/simpligility/app/tree/master</url>
+		<connection>scm:git:git://github.com/wagnerfonseca/buscacep.git</connection>
+		<developerConnection>scm:git:ssh://github.com:wagnerfonseca/buscacep.git</developerConnection>
+		<url>http://github.com/simpligility/buscacep/tree/master</url>
 	</scm>
 
 	<developers>
